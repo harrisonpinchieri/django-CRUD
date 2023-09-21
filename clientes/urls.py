@@ -11,7 +11,7 @@ from clientes.views import (
 
 
 urlpatterns = [
-    path("form_cliente", ClienteCreateView.as_view()),
+    path("form_cliente", ClienteCreateView.as_view(), name="cadastrar_cliente"),
     path("lista_clientes", ClienteListView.as_view(), name="lista_clientes"),
     path("form_clientes/<int:pk>", ClienteUpdateView.as_view(), name="editar_cliente"),
     path("lista_cliente/<int:pk>", ClienteDetailView.as_view(), name="lista_cliente"),
