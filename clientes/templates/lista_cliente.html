@@ -1,34 +1,28 @@
-<!DOCTYPE html>
+{% extends 'base.html' %}
 
-{% load bootstrap5 %}
+{% block 'conteudo'%}
 
-
-
-
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulário de clientes</title>
-    {% bootstrap_css %}
-    {% bootstrap_javascript %}
-</head>
-<body>
-{# comentário #}
-{% comment "" %}
-dasdsd
-asdsa
-{% endcomment %}
-
-   <h1>{{cliente.nome}}</h1>
-    <li>{{cliente.nome}}</li>
-    <li>{{cliente.email}}</li>
-    <li>{{cliente.data_nascimento}}</li>
-    <li>{{cliente.profissao}}</li>
+<div class="container">    
+    <div class="row">
+     
     
-
-
-
- 
-</body>
-</html>
+      <div class="col-sm-12">
+          
+          <div class="card border-primary">
+            <div class="card-header">{{cliente.nome}}</div>
+            <div class="card-text">{{cliente.profissao}}</div>
+            <div class="card-text">{{cliente.data_nascimento}}</div>
+            <div class="card-text">{{cliente.email}}</div>
+           
+            <a href={% url "editar_cliente" pk=cliente.id %}>Editar</a>
+            <a href={% url "remover_cliente" pk=cliente.id %}>Excluir</a>
+      
+          </div>
+        </div>
+      
+  
+  
+      </div>
+    </div>
+  </div><br>
+  {% endblock %}
