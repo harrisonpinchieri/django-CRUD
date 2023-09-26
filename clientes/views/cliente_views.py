@@ -8,7 +8,7 @@ from django.views.generic import (
     DetailView,
     DeleteView,
 )
-from clientes.forms import ClienteForm, EnderecoForm
+from clientes.forms.cliente_forms import ClienteForm, EnderecoForm
 
 from clientes.models import Clientes
 
@@ -17,7 +17,7 @@ from clientes.models import Clientes
 class ClienteCreateView(CreateView):
     model = Clientes
     form_class = ClienteForm
-    template_name = "form_cliente.html"
+    template_name = "clientes/form_cliente.html"
     success_url = "lista_clientes"
 
     def get_context_data(self, **kwargs):
@@ -39,14 +39,14 @@ class ClienteCreateView(CreateView):
 
 class ClienteListView(ListView):
     model = Clientes
-    template_name = "lista_clientes.html"
+    template_name = "clientes/lista_clientes.html"
 
 
 class ClienteUpdateView(UpdateView):
     model = Clientes
     # fields = ("nome", "profissao", "data_nascimento")
     form_class = ClienteForm
-    template_name = "form_cliente.html"
+    template_name = "clientes/form_cliente.html"
     success_url = reverse_lazy("lista_clientes")
 
     def get_context_data(self, **kwargs):
@@ -71,13 +71,13 @@ class ClienteUpdateView(UpdateView):
 
 class ClienteDetailView(DetailView):
     model = Clientes
-    template_name = "lista_cliente.html"
+    template_name = "clientes/lista_cliente.html"
     context_object_name = "cliente"
 
 
 class ClienteDeleteView(DeleteView):
     model = Clientes
-    template_name = "remover_cliente.html"
+    template_name = "clientes/remover_cliente.html"
     success_url = reverse_lazy("lista_clientes")
     context_object_name = "cliente "
 

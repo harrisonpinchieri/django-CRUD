@@ -1,13 +1,14 @@
 from django.contrib import admin
 from django.urls import include, path
 
-from clientes.views import (
+from clientes.views.cliente_views import (
     ClienteCreateView,
     ClienteListView,
     ClienteUpdateView,
     ClienteDetailView,
     ClienteDeleteView,
 )
+from clientes.views.dependente_views import DependenteCreateView, DependenteListView
 
 
 urlpatterns = [
@@ -18,4 +19,8 @@ urlpatterns = [
     path(
         "remover_cliente/<int:pk>", ClienteDeleteView.as_view(), name="remover_cliente"
     ),
+    path(
+        "form_dependente", DependenteCreateView.as_view(), name="cadastrar_dependente"
+    ),
+    path("lista_dependentes", DependenteListView.as_view(), name="lista_dependentes"),
 ]
