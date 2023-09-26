@@ -13,6 +13,11 @@
             <div class="card-text">{{cliente.profissao}}</div>
             <div class="card-text">{{cliente.data_nascimento}}</div>
             <div class="card-text">{{cliente.email}}</div>
+            <div class="card-text">{{cliente.endereco.rua}}</div>
+            <div class="card-text">{{cliente.endereco.numero}}</div>
+            <div class="card-text">{{cliente.endereco.bairro}}</div>
+            <div class="card-text">{{cliente.endereco.cidade}}</div>
+            <div class="card-text">{{cliente.endereco.estado}}</div>
            
             <a href={% url "editar_cliente" pk=cliente.id %}>Editar</a>
             <a href={% url "remover_cliente" pk=cliente.id %}>Excluir</a>
