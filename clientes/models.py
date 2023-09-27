@@ -57,7 +57,11 @@ class Dependente(models.Model):
     nome = models.CharField(max_length=100, null=False, blank=False)
     telefone = models.CharField(max_length=12, null=False, blank=False)
     titular = models.ForeignKey(
-        to=Clientes, on_delete=models.CASCADE, null=False, blank=False
+        to=Clientes,
+        on_delete=models.CASCADE,
+        null=False,
+        blank=False,
+        related_name="dependente",
     )
 
 

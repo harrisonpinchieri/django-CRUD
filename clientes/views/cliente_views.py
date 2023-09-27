@@ -74,6 +74,17 @@ class ClienteDetailView(DetailView):
     template_name = "clientes/lista_cliente.html"
     context_object_name = "cliente"
 
+    def get_context_data(self, **kwargs):
+        context = super(ClienteDetailView, self).get_context_data(**kwargs)
+        context["cliente"] = (
+            Clientes.objects.select_related("endereco")
+            .prefetch_related("dependente")
+            .get(id=self.kwargs["pk"])
+        )
+
+        print(context)
+        return context
+
 
 class ClienteDeleteView(DeleteView):
     model = Clientes
