@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block 'conteudo' %}
+<div class="container">    
+  <div class="row">
+   
+  {% for atendente in object_list %}
+    <div class="col-sm-4">
+        
+        <div class="card border-primary">
+          <div class="card-header">{{atendente.nome}} </div>
+          <div class="card-text">{{atendente.email}}</div>          
+        </div>
+      </div>
+    {% endfor %}
+    </div>
+  </div>
+  <a href="{% url 'cadastrar_atendente' %}" class="btn btn-primary">Cadastrar atendente</a>
+<br>
+</div>
+
+
+{% endblock 'conteudo' %}

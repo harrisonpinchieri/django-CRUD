@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load bootstrap5 %}
+
+
+
+{% block 'conteudo' %}
+<div class="container">    
+    <div class="row">
+     
+    
+      <div class="col-sm-12">
+          
+          <div class="card border-primary">
+            <form method="POST">
+                {% csrf_token %}
+                 {% bootstrap_form form %}
+            
+                 <input type="submit" class="btn btn-primary" value="Cadastrar">  
+             
+             </form>
+      
+          </div>
+        </div>
+      
+  
+  
+      </div>
+    </div>
+  </div><br>
+{% endblock 'conteudo' %}
+
+
+
+
+

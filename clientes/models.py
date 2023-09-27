@@ -59,3 +59,9 @@ class Dependente(models.Model):
     titular = models.ForeignKey(
         to=Clientes, on_delete=models.CASCADE, null=False, blank=False
     )
+
+
+class Atendente(models.Model):
+    nome = models.CharField(max_length=100, null=False, blank=False)
+    email = models.EmailField(null=False, blank=False)
+    clientes = models.ManyToManyField(to=Clientes, related_name="atendente_cliente")
