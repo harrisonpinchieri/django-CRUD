@@ -35,11 +35,19 @@ class ClienteCreateView(CreateView):
             cliente.endereco = endereco
             cliente.save()
             return HttpResponseRedirect(reverse("lista_clientes"))
+        return render(
+            request,
+            "clientes/form_cliente.html",
+            {"form": cliente_form, "endereco_form": endereco_form},
+        )
 
 
 class ClienteListView(ListView):
     model = Clientes
     template_name = "clientes/lista_clientes.html"
+    queryset = Clientes.objects.filter(
+        profissao="Programador", data_nascimento="1992-01-01"
+    ).order_by("-data_nascimento")
 
 
 class ClienteUpdateView(UpdateView):
