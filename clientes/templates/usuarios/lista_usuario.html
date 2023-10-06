@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block 'conteudo'%}
+
+<div class="container">    
+    <div class="row">
+     
+    
+      <div class="col-sm-12">
+          
+          <div class="card border-primary">
+            <div class="card-header">{{usuario.username}}</div>
+            <div class="card-text">{{usuario.first_name}}</div>
+            <div class="card-text">{{usuario.last_name}}</div>
+            <div class="card-text">{{usuario.email}}</div>
+          
+            <hr>
+                    
+            <a href="{% url 'editar_usuario' pk=usuario.id %}">Editar</a>
+            <a href="#">Excluir</a>
+      
+          </div>
+        </div>
+      
+  
+  
+      </div>
+    </div>
+  </div><br>
+  {% endblock %}
